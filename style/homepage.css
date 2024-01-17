@@ -1,0 +1,18 @@
+body {
+  margin: 0px;
+}
+
+banner {
+  height: 8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #beedaa;
+}
+
+.logo {
+  background: white;
+  padding: 1em;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px gray;
+}
