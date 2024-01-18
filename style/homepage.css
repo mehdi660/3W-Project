@@ -1,6 +1,21 @@
+:root[data-theme="dark"] {
+  --background-color: #353535;
+  --text-color: #00ff4c;
+  --head-color: #454b66;
+  --shadow: #8a8a8a7c;
+}
+
+:root[data-theme="light"] {
+  --background-color: #f0f0f0;
+  --text-color: #ff0000;
+  --head-color: #454b66;
+  --shadow: #c8c8c8;
+}
+
 body {
   margin: 0px;
   font-family: "Open Sans", sans-serif;
+  background-color: var(--background-color);
 }
 
 banner {
@@ -12,7 +27,7 @@ banner {
 }
 
 .logo {
-  background: white;
+  background-color: var(--background-color);
   padding: 1em;
   border-radius: 20px;
   box-shadow: 3px 3px 10px gray;
