@@ -20,6 +20,7 @@ searchBar.addEventListener("keyup", () => {
 
 });
 
+
 // searchBtn.addEventListener("click", () => {
 //     getCountriesByName();
 // });
