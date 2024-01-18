@@ -6,20 +6,18 @@ let searchBarValue = "";
 let url = `https://restcountries.com/v3.1/all`;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Affiche tout les pays par défaut
-    getCountriesByName();
+  // Affiche tout les pays par défaut
+  getCountriesByName();
 });
 
-searchBar.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.keyCode === 13) {
-        searchBarValue = searchBar.value;
-        if (searchBarValue.length !== 0) {
-            url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
-        }
-        clearHTML();
-        getCountriesByName();
-        e.preventDefault();
-    }
+
+searchBar.addEventListener("keyup", () => {
+  if (searchBarValue.length !== 0) {
+    url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
+  }
+  clearHTML();
+  getCountriesByName();
+
 });
 
 // searchBtn.addEventListener("click", () => {
@@ -35,12 +33,20 @@ async function getCountriesByName() {
       if (countriesData[i]?.name?.common) {
         cardContainer.innerHTML += `<div class="card">
                                                 <div class="card-img">
-                                                <img src="${countriesData[i].flags.png}" alt="">
+                                                <img src="${
+                                                  countriesData[i].flags.png
+                                                }" alt="">
                                                 </div>
                                                 <div class="card-info">
-                                                <h1>${countriesData[i].name.common}</h1>
-                                                <p>Capitale : ${countriesData[i].capital}</p>
-                                                <p>Population : ${countriesData[i].population.toLocaleString()}</p>
+                                                <h1>${
+                                                  countriesData[i].name.common
+                                                }</h1>
+                                                <p>Capitale : ${
+                                                  countriesData[i].capital
+                                                }</p>
+                                                <p>Population : ${countriesData[
+                                                  i
+                                                ].population.toLocaleString()}</p>
                                                 </div>
                                             </div>`;
       }
@@ -49,6 +55,5 @@ async function getCountriesByName() {
 }
 
 function clearHTML() {
-  // évite l'addition des résultats de toutes les recherches
   cardContainer.innerHTML = "";
 }
