@@ -127,3 +127,28 @@ input[type="number"] {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 1024px) {
+  .search-form {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .search-form {
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+  }
+  input[type="search"] {
+    margin: 10px;
+    width: 100%;
+  }
+  .population {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    margin: 20px;
+  }
+}
