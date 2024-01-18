@@ -82,3 +82,34 @@ input[type="number"] {
   top: 0px;
   margin: 10px;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  padding: 20px;
+  box-shadow: 3px 3px 10px lightgray;
+  border-radius: 20px;
+}
+
+.card-img {
+  width: 33%;
+}
+
+.card-img img {
+  width: 100%;
+}
+
+.card-info {
+  margin-left: 20px;
+}
+
+.card-info h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
