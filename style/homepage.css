@@ -32,6 +32,24 @@ banner {
   border-radius: 20px;
   margin: 30px;
   box-shadow: 3px 3px 10px lightgray;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input[type="submit"] {
+  padding: 10px;
+  background: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.search-form input[type="submit"]:hover {
+  background: lightgray;
+  cursor: pointer;
+}
+
+.search-form input[type="submit"]:active {
+  background: darkgray;
 }
 
 .filters {
@@ -49,7 +67,7 @@ banner {
 
 input[type="search"] {
   border: none;
-  margin: 0px 10px;
+  margin: 0px 10px 0px 0px;
   padding: 10px;
   width: 70%;
   border-radius: 3px;
@@ -61,6 +79,18 @@ input[type="number"] {
   margin: 0px 10px;
   padding: 10px;
   border-radius: 3px;
+}
+
+.open-filter {
+  padding: 10px;
+  background: #71a5d8;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.open-filter:hover {
+  opacity: 0.8;
 }
 
 .filters {
@@ -87,6 +117,14 @@ input[type="number"] {
 
 .language {
   margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.language #select {
+  padding: 10px;
+  background: white;
+  border: none;
 }
 
 .close {
