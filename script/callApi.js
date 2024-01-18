@@ -3,8 +3,17 @@ let countryCard = document.querySelector("#countryCard");
 let cardContainer = document.querySelector("#cardContainer");
 let searchBar = document.querySelector("#country-search");
 let searchBarValue = "";
+let url = `https://restcountries.com/v3.1/all`;
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Affiche tout les pays par défaut
+  getCountriesByName();
+});
 
 searchBar.addEventListener("keyup", () => {
+  if (searchBarValue.length !== 0) {
+    url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
+  }
   clearHTML();
   getCountriesByName();
 });
@@ -15,13 +24,11 @@ searchBar.addEventListener("keyup", () => {
 
 async function getCountriesByName() {
   searchBarValue = searchBar.value;
-  const response = await fetch(
-    `https://restcountries.com/v3.1/name/${searchBarValue}`
-  );
+  const response = await fetch(url);
   if (response.ok) {
     let countriesData = await response.json();
     console.log(countriesData);
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < countriesData.length; i++) {
       if (countriesData[i]?.name?.common) {
         cardContainer.innerHTML += `<div class="card">
                                                 <div class="card-img">
@@ -47,6 +54,5 @@ async function getCountriesByName() {
 }
 
 function clearHTML() {
-  // évite l'addition des résultats de toutes les recherches
   cardContainer.innerHTML = "";
 }
