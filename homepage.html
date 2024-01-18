@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Countries</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style/homepage.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <banner>
@@ -26,6 +30,90 @@
         />
       </svg>
     </banner>
+    <main>
+      <div class="search-container">
+        <form class="search-form" action="">
+          <input
+            type="search"
+            name=""
+            id="country-search"
+            placeholder="Search for a country"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="16"
+            width="16"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="#ffffff"
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </form>
+        <button>Open filters</button>
+        <div class="filters">
+          <div class="close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="12"
+              viewBox="0 0 384 512"
+            >
+              <path
+                fill="#ffffff"
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              />
+            </svg>
+          </div>
+          <form class="filter-form" action="">
+            <div class="continent">
+              <p>Continent :</p>
+              <input type="radio" id="africa" name="continent" value="Africa" />
+              <label for="africa">Africa</label>
+              <input type="radio" id="asia" name="continent" value="Asia" />
+              <label for="css">Asia</label>
+              <input type="radio" id="europe" name="continent" value="Europe" />
+              <label for="europe">Europe</label>
+              <input
+                type="radio"
+                id="america"
+                name="continent"
+                value="America"
+              />
+              <label for="america">America</label>
+              <input
+                type="radio"
+                id="oceania"
+                name="continent"
+                value="Oceania"
+              />
+              <label for="oceania">Oceania</label>
+            </div>
+            <div class="population">
+              <label for="population-min">Population min :</label>
+              <input
+                type="number"
+                id="population-min"
+                name="population-min"
+                min="0"
+              />
+              <label for="population-max">Population max :</label>
+              <input
+                type="number"
+                id="population-max"
+                name="population-max"
+                min="0"
+              />
+            </div>
+            <div class="language">
+              <label for="language">Official language :</label>
+              <input type="text" name="language" id="language" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  font-family: "Open Sans", sans-serif;
 }
 
 banner {
@@ -15,4 +16,69 @@ banner {
   padding: 1em;
   border-radius: 20px;
   box-shadow: 3px 3px 10px gray;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form {
+  padding: 10px 20px;
+  background: #71a5d8;
+  width: 33%;
+  color: white;
+  border-radius: 20px;
+  margin: 30px;
+  box-shadow: 3px 3px 10px lightgray;
+}
+
+input[type="search"] {
+  border: none;
+  margin: 0px 10px;
+  padding: 10px;
+  width: 85%;
+  border-radius: 3px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: none;
+  margin: 0px 10px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.filters {
+  padding: 10px 20px;
+  background: #71a5d8;
+  color: white;
+  border-radius: 20px;
+  margin: 30px;
+  box-shadow: 3px 3px 10px lightgray;
+  position: relative;
+}
+
+.continent p {
+  display: inline;
+}
+
+.continent {
+  margin: 20px 0px;
+}
+
+.population {
+  margin: 20px 0px;
+}
+
+.language {
+  margin: 20px 0px;
+}
+
+.close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin: 10px;
 }
