@@ -110,10 +110,11 @@ input[type="number"] {
   width: 30%;
   box-shadow: 3px 3px 10px lightgray;
   border-radius: 20px;
+  cursor: pointer;
 }
 
-.card-img {
-  width: 33%;
+.card img {
+  width: 70%;
 }
 
 .card-img img {
