@@ -6,26 +6,23 @@ let searchBarValue = "";
 let url = `https://restcountries.com/v3.1/all`;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Affiche tout les pays par défaut
+    // show all countries by default
     getCountriesByName();
 });
 
 searchBar.addEventListener("keydown", (e) => {
+    // call api when enter key is pressed
     if (e.key === "Enter" || e.keyCode === 13) {
-        searchBarValue = searchBar.value;
-        if (searchBarValue.length !== 0) {
-            url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
-        }
-        clearHTML();
-        getCountriesByName();
+        searchActivation();
         e.preventDefault();
     }
 });
 
-
-// searchBtn.addEventListener("click", () => {
-//     getCountriesByName();
-// });
+searchBtn.addEventListener("click", () => {
+    // call api when click on the search button
+    searchActivation();
+    e.preventDefault();
+});
 
 async function getCountriesByName() {
   const response = await fetch(url);
@@ -50,6 +47,15 @@ async function getCountriesByName() {
 }
 
 function clearHTML() {
-  // évite l'addition des résultats de toutes les recherches
+  // avoids adding up the results of all searches
   cardContainer.innerHTML = "";
+}
+
+function searchActivation() {
+    searchBarValue = searchBar.value;
+    if (searchBarValue.length !== 0) {
+        url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
+    }
+    clearHTML();
+    getCountriesByName();
 }
