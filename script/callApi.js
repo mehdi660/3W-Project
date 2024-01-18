@@ -10,20 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
   getCountriesByName();
 });
 
+
 searchBar.addEventListener("keyup", () => {
   if (searchBarValue.length !== 0) {
     url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
   }
   clearHTML();
   getCountriesByName();
+
 });
 
-// searchBtn.addEventListener('click', () => {
+// searchBtn.addEventListener("click", () => {
 //     getCountriesByName();
 // });
 
 async function getCountriesByName() {
-  searchBarValue = searchBar.value;
   const response = await fetch(url);
   if (response.ok) {
     let countriesData = await response.json();
