@@ -1,7 +1,21 @@
+:root[data-theme="dark"] {
+  --background-color: #353535;
+  --text-color: #00ff4c;
+  --head-color: #454b66;
+  --shadow : #8a8a8a7c;
+  }
+
+:root[data-theme="light"] {
+  --background-color: #f0f0f0;
+  --text-color: #ff0000;
+  --head-color: #454b66;
+  --shadow : #c8c8c8;
+}
+
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: #fbfbfb;
+  background-color: var(--background-color);
   font-family: open sans, sans-serif;
 }
 
@@ -11,23 +25,23 @@ body {
 
 header {
   width: 100%;
-  background-color: #beedaa;
+  background-color: var(--head-color);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100px;
-  filter: drop-shadow(0px 4px 4px #c8c8c8);
+  filter: drop-shadow(0px 4px 4px var(--shadow));
   position: relative;
 }
 
 .logo {
-  background-color: #fbfbfb;
+  background-color: var(--background-color);
   padding: 15px;
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.darkmode {
+.theme {
   position: absolute;
   right: 1px;
   top: 1px;
@@ -39,17 +53,6 @@ header {
   background: #ffff;
   margin-right: -5px;
   cursor: pointer;
-}
-
-#dark {
-  border-radius: 0 20px 20px 0;
-  border: 1px solid rgb(0, 0, 0);
-  background: #000000;
-  cursor: pointer;
-}
-
-.fa-moon {
-  color: #ffff;
 }
 
 .country-name {
@@ -72,7 +75,7 @@ form {
 #search {
   border-radius: 3px;
   border: 1px solid rgba(63, 63, 63, 0.42);
-  background: #f0f0f0;
+  background: var(--background-color);
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.25);
   margin: 0;
 }
@@ -90,13 +93,13 @@ form {
   justify-content: center;
   border-radius: 3px 0 0 3px;
   border: 1px solid rgba(63, 63, 63, 0.42);
-  background: #f0f0f0;
+  background: var(--background-color);
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .filtering {
   border: 1px solid rgba(63, 63, 63, 0.42);
-  background: #f0f0f0;
+  background: var(--background-color);
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
   width: 92px;
@@ -108,4 +111,12 @@ form {
 
 .filtering:hover {
   cursor: pointer;
+}
+
+p{
+  color: var(--text-color);
+  width: 50%;
+  display: flex;
+  text-align: center;
+  margin-top: 50px;
 }
