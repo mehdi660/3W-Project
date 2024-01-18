@@ -1,15 +1,15 @@
 let searchBtn = document.querySelector("#searchBtn");
 let countryCard = document.querySelector("#countryCard");
-let searchBar = document.querySelector("#searchBar");
+let searchBar = document.querySelector("#country-search");
 let searchBarValue = "";
 
 searchBar.addEventListener('keyup', () => {
-    
+    getCountriesByName();
 });
 
-searchBtn.addEventListener('click', () => {
-    getCountriesByName();
-})
+// searchBtn.addEventListener('click', () => {
+//     getCountriesByName();
+// });
 
 async function getCountriesByName() {
     searchBarValue = searchBar.value;
