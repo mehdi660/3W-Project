@@ -10,9 +10,3 @@ filterBtn.addEventListener("click", () => {
     filterBtn.textContent = "Close Filters";
   }
 });
-
-const closeBtn = document.querySelector(".close");
-closeBtn.addEventListener("click", () => {
-  filtersSection.classList.add("hidden");
-  filterBtn.textContent = "Open Filters";
-});
