@@ -94,4 +94,5 @@ input[type="number"] {
   right: 0px;
   top: 0px;
   margin: 10px;
+  cursor: pointer;
 }
