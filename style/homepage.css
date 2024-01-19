@@ -18,7 +18,7 @@ body {
   background-color: var(--background-color);
 }
 
-banner {
+header {
   height: 8em;
   display: flex;
   align-items: center;
