@@ -5,6 +5,11 @@ let cardContainer = document.querySelector("#cardContainer");
 let searchBar = document.querySelector("#country-search");
 let searchBarValue = "";
 let url = `https://restcountries.com/v3.1/all`;
+let totalCountries = 0; // Variable pour stocker le nombre total de pays
+
+// Pagination
+let currentPage = 1;
+const countriesPerPage = 10; // Nombre de pays à afficher par page
 
 document.addEventListener("DOMContentLoaded", () => {
     // show all countries by default
@@ -36,41 +41,17 @@ if (window.location.pathname.includes("/homepage.html")) {
 
 async function getCountriesByName() {
     if (window.location.pathname.includes("/homepage.html")) {
-        const response = await fetch(url);
+        const startIdx = (currentPage - 1) * countriesPerPage;
+        const endIdx = startIdx + countriesPerPage;
 
+        const response = await fetch(url);
         if (response.ok) {
             let countriesData = await response.json();
-            // console.log(countriesData);
-
-            const maxDisplayCount = 30;
-            let displayCount = 0;
-            
-            for (let i = 0; i < countriesData.length; i++) {
-                if (countriesData[i]?.name?.common && displayCount < maxDisplayCount) {
-                    cardContainer.innerHTML += `<div class="card" data-country="${
-                        countriesData[i].name.common
-                    }">
-                                          <div class="card-img">
-                                          <img src="${
-                                              countriesData[i].flags.png
-                                          }" alt="">
-                                          </div>
-                                          <div class="card-info">
-                                          <h1>${
-                                              countriesData[i].name.common
-                                          }</h1>
-                                          <p>Capitale : ${
-                                              countriesData[i].capital
-                                          }</p>
-                                          <p>Population : ${countriesData[
-                                              i
-                                          ].population.toLocaleString()}</p>
-                                          </div>
-                                      </div>`;
-                  // incremente le compteur d'affichage
-                  displayCount++;
-                }
-            }
+            totalCountries = countriesData.length; // Mise à jour du nombre total de pays
+            const displayedCountries = countriesData.slice(startIdx, endIdx);
+            clearHTML();
+            displayCountries(displayedCountries);
+            updatePagination();
         }
         addClickOnCard();
     }
@@ -101,7 +82,61 @@ function searchActivation(value) {
     searchBarValue = value;
     if (searchBarValue.length !== 0) {
         url = `https://restcountries.com/v3.1/name/${searchBarValue}`;
-    }
-    clearHTML();
-    getCountriesByName();
+      } else {
+        url = `https://restcountries.com/v3.1/all`;
+      }
+      currentPage = 1; // Revenir à la première page après une recherche ou une réinitialisation
+      getCountriesByName();
 }
+
+function displayCountries(countries) {
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i]?.name?.common) {
+            cardContainer.innerHTML += `<div class="card" data-country="${
+                countries[i].name.common
+                }">
+                                <div class="card-img">
+                                <img src="${
+                                    countries[i].flags.png
+                                }" alt="">
+                                </div>
+                                <div class="card-info">
+                                <h1>${
+                                    countries[i].name.common
+                                }</h1>
+                                <p>Capitale : ${
+                                    countries[i].capital
+                                }</p>
+                                <p>Population : ${countries[
+                                    i
+                                ].population.toLocaleString()}</p>
+                                </div>
+                            </div>`;
+        }
+    }
+}
+
+function updatePagination() {
+    const totalPages = Math.ceil(totalCountries / countriesPerPage);
+    document.getElementById(
+      "currentPage"
+    ).textContent = `Page ${currentPage} sur ${totalPages}`;
+  
+    document.getElementById("prevPage").disabled = currentPage === 1;
+    document.getElementById("nextPage").disabled = currentPage === totalPages;
+  }
+  
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      getCountriesByName();
+    }
+  }
+  
+  function nextPage() {
+    const totalPages = Math.ceil(totalCountries / countriesPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      getCountriesByName();
+    }
+  }
