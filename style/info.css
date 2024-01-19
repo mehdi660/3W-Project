@@ -67,3 +67,15 @@ p {
   text-align: center;
   margin-top: 50px;
 }
+
+/* Country informations */
+
+.card-img {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-size: 45px;
+  color: var(--head-color);
+}
