@@ -60,4 +60,6 @@ function filterCountriesByPopulation() {
   const maxPopulation = parseInt(selectPopulationMax.value, 10) || Infinity;
 
   getCountriesByPopulation(minPopulation, maxPopulation);
+
 }
+

@@ -12,7 +12,16 @@ let currentPage = 1;
 const countriesPerPage = 10; // Nombre de pays à afficher par page
 
 document.addEventListener("DOMContentLoaded", () => {
-  getCountriesByName();
+
+    // show all countries by default
+    getCountriesByName();
+
+    const prevPageBtn = document.getElementById("prevPage");
+    const nextPageBtn = document.getElementById("nextPage");
+
+    prevPageBtn.addEventListener("click", prevPage);
+    nextPageBtn.addEventListener("click", nextPage);
+
 });
 
 
@@ -74,7 +83,7 @@ function addClickOnCard() {
 }
 
 function clearHTML() {
-    // avoids adding up the results of all searches
+    // Avoids adding up the results of all searches
     cardContainer.innerHTML = "";
 }
 

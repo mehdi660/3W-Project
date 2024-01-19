@@ -53,6 +53,7 @@ body {
   box-shadow: 0 0 0 0 rgba(13, 145, 68, 0.5);
   animation: inherit;
   animation-delay: -0.5s;
+
 }
 
 .pulse:after {
@@ -64,6 +65,7 @@ body {
     box-shadow: 0 0 0 44.8px rgba(19, 187, 103, 0);
   }
 }
+
 
 @keyframes loading {
   0% {
@@ -192,8 +194,6 @@ input[type="number"] {
   cursor: pointer;
   transition: 0.2s ease-in;
   margin-right: 5px;
-
-  width: 100px;
 }
 
 #searchBtn:hover {
@@ -211,7 +211,6 @@ input[type="number"] {
   cursor: pointer;
   transition: 0.2s ease-in;
   margin-right: 5px;
-  width: 100px;
 }
 
 #cleanBtn:hover {
@@ -342,5 +341,18 @@ input[type="number"] {
     flex-direction: column;
     align-items: stretch;
     margin: 0;
+  }
+
+  .card h1 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
   }
 }
