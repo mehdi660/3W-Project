@@ -6,24 +6,92 @@
 }
 
 :root[data-theme="light"] {
-  --background-color: #fbfbfb;
+  --background-color: #f0f0f0;
   --text-color: #ff0000;
-  --head-color: #beedaa;
+  --head-color: #454b66;
   --shadow: #c8c8c8;
 }
 
 body {
   margin: 0px;
   font-family: "Open Sans", sans-serif;
-  background-color: var(--background-color);
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 }
 
-banner {
+.loader {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #85ffbd 0%, #fffb7d 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  animation: loading 2s forwards;
+}
+
+.pulse {
+  width: 22.4px;
+  height: 22.4px;
+  border-radius: 50%;
+  background: #85ffbd;
+  box-shadow: 0 0 0 0 rgba(39, 119, 15, 0.5);
+  animation: pulse 1.5s infinite linear;
+  position: relative;
+}
+
+.pulse:before,
+.pulse:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(13, 145, 68, 0.5);
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+
+.pulse:after {
+  animation-delay: -1s;
+}
+
+@keyframes pulse {
+  100% {
+    box-shadow: 0 0 0 44.8px rgba(19, 187, 103, 0);
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  88% {
+    z-index: 1000;
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -2;
+    opacity: 0;
+  }
+}
+
+header {
   height: 8em;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--head-color);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .logo {
@@ -41,12 +109,12 @@ banner {
 
 .search-form {
   padding: 10px 20px;
-  background: #71a5d8;
+  background: #80d0c7;
   width: 33%;
   color: white;
   border-radius: 20px;
   margin: 30px;
-  box-shadow: 3px 3px 10px lightgray;
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
   display: flex;
   justify-content: center;
 }
@@ -72,6 +140,9 @@ banner {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
   opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filters.hidden {
@@ -98,23 +169,64 @@ input[type="number"] {
 
 .open-filter {
   padding: 10px;
-  background: #71a5d8;
-  color: white;
+  background: #85ffbd;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
 }
 
 .open-filter:hover {
   opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
+}
+
+#searchBtn {
+  padding: 10px;
+  background: #85ffbd;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  margin-right: 5px;
+
+  width: 100px;
+}
+
+#searchBtn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
+}
+
+#cleanBtn {
+  padding: 10px;
+  background: #85ffbd;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  margin-right: 5px;
+  width: 100px;
+}
+
+#cleanBtn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
 }
 
 .filters {
   padding: 10px 20px;
-  background: #71a5d8;
+  background: #80d0c7;
   color: white;
   border-radius: 20px;
   margin: 30px;
-  box-shadow: 3px 3px 10px lightgray;
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
   position: relative;
 }
 
@@ -161,13 +273,10 @@ input[type="number"] {
   display: flex;
   padding: 20px;
   width: 30%;
-  box-shadow: 3px 3px 10px lightgray;
+  box-shadow: 3px 3px 10px rgb(81, 81, 81);
   border-radius: 20px;
   cursor: pointer;
-}
-
-.card img {
-  width: 70%;
+  background: #80d0c71e;
 }
 
 .card-img img {
@@ -181,6 +290,14 @@ input[type="number"] {
 .card-info h1 {
   margin-top: 0;
   margin-bottom: 10px;
+}
+
+#pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -203,7 +320,27 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
   }
+
+  #searchBtn {
+    margin-bottom: 10px;
+  }
   .card {
     margin: 20px;
+    flex-direction: column;
+  }
+
+  .card h1 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
   }
 }
