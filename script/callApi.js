@@ -14,6 +14,12 @@ const countriesPerPage = 10; // Nombre de pays à afficher par page
 document.addEventListener("DOMContentLoaded", () => {
     // show all countries by default
     getCountriesByName();
+    
+    const prevPageBtn = document.getElementById("prevPage");
+    const nextPageBtn = document.getElementById("nextPage");
+
+    prevPageBtn.addEventListener("click", prevPage);
+    nextPageBtn.addEventListener("click", nextPage);
 });
 
 if (window.location.pathname.includes("/homepage.html")) {
