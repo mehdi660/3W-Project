@@ -1,4 +1,5 @@
 let searchBtn = document.querySelector("#searchBtn");
+let cleanBtn = document.querySelector("#cleanBtn");
 let countryCard = document.querySelector("#countryCard");
 let cardContainer = document.querySelector("#cardContainer");
 let searchBar = document.querySelector("#country-search");
@@ -20,6 +21,13 @@ searchBar.addEventListener("keydown", (e) => {
 
 searchBtn.addEventListener("click", () => {
     // call api when click on the search button
+    searchActivation();
+    e.preventDefault();
+});
+
+cleanBtn.addEventListener("click", () => {
+    // show all countries like default
+    url = `https://restcountries.com/v3.1/all`
     searchActivation();
     e.preventDefault();
 });
