@@ -6,9 +6,9 @@
 }
 
 :root[data-theme="light"] {
-  --background-color: #f0f0f0;
+  --background-color: #fbfbfb;
   --text-color: #ff0000;
-  --head-color: #454b66;
+  --head-color: #beedaa;
   --shadow: #c8c8c8;
 }
 
@@ -23,7 +23,7 @@ banner {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #beedaa;
+  background-color: var(--head-color);
 }
 
 .logo {
