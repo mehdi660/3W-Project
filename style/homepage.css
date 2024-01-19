@@ -1,14 +1,25 @@
 :root[data-theme="dark"] {
   --background-color: #353535;
+  --background: radial-gradient(
+    circle at 10% 20%,
+    rgb(69, 86, 102) 0%,
+    rgb(34, 34, 34) 90%
+  );
   --text-color: #00ff4c;
-  --head-color: #454b66;
+  --head-color: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
   --shadow: #8a8a8a7c;
+  --button: rgb(34, 34, 34);
 }
 
 :root[data-theme="light"] {
   --background-color: #f0f0f0;
+  --background: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   --text-color: #ff0000;
-  --head-color: #454b66;
+  --head-color: linear-gradient(0deg, #85ffbd 0%, #fffb7d 100%);
   --shadow: #c8c8c8;
 }
 
@@ -16,7 +27,7 @@ body {
   margin: 0px;
   font-family: "Open Sans", sans-serif;
   background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  background-image: var(--background);
 }
 
 .loader {
@@ -90,14 +101,22 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0093e9;
-  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background: var(--head-color);
 }
 
 .theme {
   position: absolute;
-  right: 1px;
-  top: 1px;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+#theme-toggle {
+  transition: 0.2s ease-out;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.05);
 }
 
 #light {
