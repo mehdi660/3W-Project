@@ -289,6 +289,14 @@ input[type="number"] {
   margin-bottom: 10px;
 }
 
+#pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 1024px) {
   .search-form {
     display: flex;
@@ -311,5 +319,18 @@ input[type="number"] {
   }
   .card {
     margin: 20px;
+  }
+
+  .card h1 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
   }
 }
