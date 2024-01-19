@@ -192,6 +192,8 @@ input[type="number"] {
   cursor: pointer;
   transition: 0.2s ease-in;
   margin-right: 5px;
+
+  width: 100px;
 }
 
 #searchBtn:hover {
@@ -209,6 +211,7 @@ input[type="number"] {
   cursor: pointer;
   transition: 0.2s ease-in;
   margin-right: 5px;
+  width: 100px;
 }
 
 #cleanBtn:hover {
@@ -317,8 +320,13 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
   }
+
+  #searchBtn {
+    margin-bottom: 10px;
+  }
   .card {
     margin: 20px;
+    flex-direction: column;
   }
 
   .card h1 {
@@ -332,5 +340,7 @@ input[type="number"] {
   .card-info {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    margin: 0;
   }
 }
